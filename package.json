@@ -14,6 +14,7 @@
     "gulp-concat": "~2.6.0",
     "gulp-browserify": "~0.5.1",
     "jquery": "~2.1.4",
-    "mustache": "~2.2.0"
+    "mustache": "~2.2.0",
+    "gulp-compass": "~2.1.0"
   }
 }
