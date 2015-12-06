@@ -3,8 +3,9 @@
  
 //Compass imports
 @import "compass";
+
 @import "compass/css3/box-shadow";
- 
+@import "compass/reset";
 //Core partials
 @import "variables";
 @import "mixins";
