@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
     minifyHTML = require('gulp-minify-html'),
+    jsonMinify = require('gulp-jsonminify'),
     env = process.env.NODE_ENV || 'development',
     outputDir,
     sassStyle;
@@ -29,7 +30,7 @@ var coffeeSources = ['components/coffee/tagline.coffee'],
     ],
     sassSources = ['components/sass/style.scss'],
     htmlSources = 'builds/development/*.html',
-    jsonSources = [outputDir + 'js/*.json'];
+    jsonSources = 'builds/development/js/*.json';
 
 //gulp.task('log', function(){
 //    gutil.log('Workflows are awesome');
@@ -77,6 +78,8 @@ gulp.task('html', function(){
 
 gulp.task('json', function(){
     gulp.src(jsonSources)
+        .pipe(gulpif(env === 'production', jsonMinify()))
+        .pipe(gulpif(env === 'production', gulp.dest('builds/production/js')))
         .pipe(connect.reload());
 });
 
